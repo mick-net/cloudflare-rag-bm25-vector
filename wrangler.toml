@@ -1,0 +1,28 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "cloudflare-rag-bm25-vector"
+compatibility_date = "2024-08-21"
+pages_build_output_dir = "./build/client"
+
+[placement]
+mode = "smart"
+
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "VECTORIZE_INDEX"
+index_name = "cloudflare-rag-index"
+
+[[d1_databases]]
+binding = "DB"                                       
+database_name = "cloudflare-rag"
+database_id = "ba4bc317-967b-45fb-8a6b-fbca97f9af14" # replace with your database id
+migrations_dir = "drizzle"
+
+[[r2_buckets]]
+binding = "R2_BUCKET"
+bucket_name = "cloudflare-rag-bucket"
+
+[[kv_namespaces]]
+binding = "rate_limiter"
+id = "3b3b61855a794dfcaed9c91715a1d4e9" # replace with your KV id
